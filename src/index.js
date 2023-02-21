@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { sendToVercelAnalytics } from './vitals';
+import { ChakraProvider } from '@chakra-ui/react';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ChakraProvider>
+
     <App />
-  </React.StrictMode>,
+  </ChakraProvider>,
   document.getElementById('root')
 );
 
