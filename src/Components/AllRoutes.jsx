@@ -6,7 +6,7 @@ import LoginPage from '../Pages/LoginPage'
 import CartPage from '../Pages/CartPage'
 
 
-const AllRoutes = ({cart}) => {
+const AllRoutes = () => {
 
   return (
     <Routes>
