@@ -7,13 +7,16 @@ import { Box,Text, Flex , Image, Heading, Input, Button, Menu,
   IconButton
 } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
+import { useAuth0 } from "@auth0/auth0-react";
 
 import {AiFillShop,AiOutlineMenu,AiOutlineSearch} from 'react-icons/ai'
 import {ImLocation} from 'react-icons/im'
-import {BiUser} from 'react-icons/bi'
 import {BsFillCartCheckFill} from 'react-icons/bs'
 
 const Navbar = () => {
+  const { loginWithRedirect,logout,isAuthenticated } = useAuth0();
+
+  
   return (<Box>
     <Flex flexDirection={['column','column','column','row','row','row']} textAlign={'center'} bg='white' h={'5vh'} w={['100%']} >
       <Box w={'8%'}>
@@ -21,7 +24,7 @@ const Navbar = () => {
         <Image p={'1'} ml={['3px','3px','6px','15px','15px','15px']} mr={'10px'}  w={['20%','20%','30%','30%','100%','100%']} h={'100%'} src='https://d1k0rbiro50qe0.cloudfront.net/davids-dark.svg' />
     </RouterLink>
       </Box>
-        <Flex marginLeft={'30px'} h='100%' w={['500px','500px','500px','900px','1000px','1100px']} bg={'#0d1a10'} >
+        <Flex marginLeft={'30px'} h='100%' w={['500px','600px','700px','900px','1000px','1100px']} bg={'#0d1a10'} >
             <Box>
         <Image p={'1'} ml={['3px','3px','6px','15px','15px','15px']} mr={'10px'}  w={['30%','30%','50%','50%']} src='https://d1k0rbiro50qe0.cloudfront.net/pearl-light.svg' />
             </Box>
@@ -53,10 +56,9 @@ const Navbar = () => {
           variant='outline'
         />
         <MenuList>
-          {/* <MenuItem as='a' href='/' >Home</MenuItem>
-          <MenuItem as='b' href='/dressespage'>Shop</MenuItem>
-          <MenuItem as='c' href='/loginpage'>Log in</MenuItem>
-          <MenuItem as='d' href='/cartpage'>Cart</MenuItem> */}
+          <RouterLink to={'/'} ><MenuItem>Home</MenuItem></RouterLink>
+          <RouterLink to={'/dressespage'} ><MenuItem>Shop</MenuItem></RouterLink>
+          <RouterLink to={'/cartpage'} ><MenuItem>Cart</MenuItem></RouterLink>
         </MenuList>
     </Menu> 
          </Box>
@@ -76,13 +78,19 @@ const Navbar = () => {
         <Box  > <Text>BOOK APPOINTMENT</Text></Box>
         </Flex>
         {/* 2nd NavBar SearchBar */}
-        <Flex ml={['50px','50px','50px','210px','210px','210px']} >
+        <Flex ml={['50px','50px','50px','210px','210px','210px']} alignItems={'center'} >
           <Flex><Input border={'none'} borderBottom={'1px solid black'} placeholder='Search...' />
           <Button bgColor={'transparent'} ><AiOutlineSearch size={['10px','10px','10px','25px','25px','25px']} /></Button></Flex>
-          <Box mt={'7px'} ml={['5px','5px','17px','17px']} ><ImLocation size={'25px'} /></Box>
-          <Box mt={'7px'} ml={['5px','5px','31px','31px']} ><BiUser size={'25px'} /></Box>
+          <Box  ml={['5px','5px','17px','17px']} ><ImLocation size={'25px'} /></Box>
+          <Box  ml={['5px','5px','22px','22px']} >
+            { isAuthenticated ? (<Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+              Log Out
+            </Button>) : (<Button onClick={() => loginWithRedirect()}>Log In</Button>)
+
+            }
+          </Box>
           <RouterLink to={'/cartpage'} >
-          <Box mt={'7px'} ml={['5px','5px','31px','31px']} ><BsFillCartCheckFill size={'25px'} /></Box>
+          <Box  ml={['5px','5px','23px','23px']} ><BsFillCartCheckFill size={'25px'} /></Box>
           </RouterLink>
         </Flex>
     </Flex>
