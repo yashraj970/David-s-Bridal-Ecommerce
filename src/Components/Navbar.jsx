@@ -1,12 +1,17 @@
 import React from 'react'
 // import { Link as RouterLink } from 'react-router-dom'
-import { Box,Text, Flex , Image, Heading, Input, Button } from '@chakra-ui/react'
+import { Box,Text, Flex , Image, Heading, Input, Button, Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton
+} from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import {AiFillShop,AiOutlineMenu,AiOutlineSearch} from 'react-icons/ai'
 import {ImLocation} from 'react-icons/im'
 import {BiUser} from 'react-icons/bi'
-import {FaShoppingBag} from 'react-icons/fa'
+import {BsFillCartCheckFill} from 'react-icons/bs'
 
 const Navbar = () => {
   return (<Box>
@@ -39,7 +44,22 @@ const Navbar = () => {
     {/* 2nd NavBar  */}
 
     <Flex ml={['3px','3px','6px','15px','15px','15px']} h={'5vh'} mb={'10px'} mt={'20px'}>
-      <Box ml={['3px','3px','6px','20px','20px','20px']}><AiOutlineMenu size={'30px'}/></Box>
+      <Box ml={['3px','3px','6px','20px','20px','20px']}>
+      <Menu>
+        <MenuButton
+          as={IconButton}
+          aria-label='Options'
+          icon={<AiOutlineMenu size={'25px'}/>}
+          variant='outline'
+        />
+        <MenuList>
+          {/* <MenuItem as='a' href='/' >Home</MenuItem>
+          <MenuItem as='b' href='/dressespage'>Shop</MenuItem>
+          <MenuItem as='c' href='/loginpage'>Log in</MenuItem>
+          <MenuItem as='d' href='/cartpage'>Cart</MenuItem> */}
+        </MenuList>
+    </Menu> 
+         </Box>
       <RouterLink to='/'>
       <Box ml={['3px','3px','6px','20px','20px','20px']}><Image w={['50%','50%','90%','90%']} src='https://d1k0rbiro50qe0.cloudfront.net/logo-full.svg' /> </Box>
       </RouterLink>
@@ -62,7 +82,7 @@ const Navbar = () => {
           <Box mt={'7px'} ml={['5px','5px','17px','17px']} ><ImLocation size={'25px'} /></Box>
           <Box mt={'7px'} ml={['5px','5px','31px','31px']} ><BiUser size={'25px'} /></Box>
           <RouterLink to={'/cartpage'} >
-          <Box mt={'7px'} ml={['5px','5px','31px','31px']} ><FaShoppingBag size={'25px'} /></Box>
+          <Box mt={'7px'} ml={['5px','5px','31px','31px']} ><BsFillCartCheckFill size={'25px'} /></Box>
           </RouterLink>
         </Flex>
     </Flex>
