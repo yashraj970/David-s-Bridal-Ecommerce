@@ -1,7 +1,7 @@
 import { Box,Grid,GridItem,Text,Image, Heading, Button, useToast} from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import CartPage from './CartPage'
+import { Link as RouterLink } from 'react-router-dom'
 
 
 const DressesProd = () => {
@@ -51,13 +51,16 @@ const DressesProd = () => {
     })
   }
   }
+
   useEffect(()=>{
+    console.log(dresses?.id)
     getData()
   },[])
 
   if(loading){
     return <Heading mt={'60px'} textAlign={'center'} >Loading...</Heading>
   }
+
   return (
   <Box w={'90%'} margin='auto' >
     <Grid mt={'40px'} templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)','repeat(4, 1fr)']} gap={6}>
@@ -74,7 +77,8 @@ const DressesProd = () => {
             _hover={{
               bg: 'blue.500',
             }}
-             onClick={()=> HandleCart(dress)  } >Add to Cart</Button>
+             onClick={()=> HandleCart(dress)  } >Add to Cart</Button> <br />
+             <RouterLink to={`/dressespage/${dress.id}`}> <Text _hover={{color:'blue.500'}} color={'blue.300'} >See More Details</Text> </RouterLink>
           </GridItem>
         ))
       }

@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Link as RouterLink } from 'react-router-dom'
 import { Box,Text, Flex , Image, Heading, Input, Button, Menu,
   MenuButton,
   MenuList,
@@ -24,7 +23,7 @@ const Navbar = () => {
         <Image p={'1'} ml={['3px','3px','6px','15px','15px','15px']} mr={'10px'}  w={['80%','80%','80%','80%','100%','100%']} h={'100%'} src='https://d1k0rbiro50qe0.cloudfront.net/davids-dark.svg' />
     </RouterLink>
       </Box>
-        <Flex marginLeft={'30px'} h='100%' w={['370px','500px','700px','900px','1000px','1100px']} bg={'#0d1a10'} >
+        <Flex marginLeft={'30px'} h='100%' w={['360px','500px','700px','900px','1000px','1100px']} bg={'#0d1a10'} >
             <Box>
         <Image p={'1'} ml={['3px','3px','6px','15px','15px','15px']} mr={'10px'}  w={['30%','30%','50%','50%']} src='https://d1k0rbiro50qe0.cloudfront.net/pearl-light.svg' />
             </Box>
@@ -78,7 +77,7 @@ const Navbar = () => {
         <Box  > <Text fontSize={['0px','0px','8px','16px','16px','16px']}>BOOK APPOINTMENT</Text></Box>
         </Flex>
         {/* 2nd NavBar SearchBar */}
-        <Flex ml={['50px','50px','50px','210px','210px','210px']} alignItems={'center'} >
+        <Flex ml={['25px','25px','50px','210px','210px','210px']} alignItems={'center'} >
           <Flex><Input border={'none'} borderBottom={'1px solid black'} placeholder='Search...' />
           <Button bgColor={'transparent'} ><AiOutlineSearch size={['10px','10px','10px','25px','25px','25px']} /></Button></Flex>
           <Box  ml={['5px','5px','17px','17px']} ><ImLocation size={'25px'} /></Box>
