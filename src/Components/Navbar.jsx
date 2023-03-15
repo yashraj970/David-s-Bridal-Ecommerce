@@ -1,4 +1,5 @@
 import React from 'react'
+import './Navbar.css'
 import { Box,Text, Flex , Image, Heading, Input, Button, Menu,
   MenuButton,
   MenuList,
@@ -39,7 +40,7 @@ const Navbar = () => {
         </Flex>
         <Flex color={'whiteAlpha.800'} bg={'rgb(244, 72, 100)'} w={['0px','0px','0px','265px','265px','265px']} >
        <Box ml={['0px','3px','6px','20px','30px','30px']} mt='6px' > <AiFillShop  size={'23px'} /></Box>
-        <Box  mt={'6px'} > <Text fontSize={['0px','0px','8px','16px','16px','16px']}>BOOK APPOINTMENT</Text></Box>
+        <Box className='none' mt={'6px'} > <Text fontSize={['0px','0px','8px','16px','16px','16px']}>BOOK APPOINTMENT</Text></Box>
      </Flex>
     </Flex>
     
@@ -73,15 +74,15 @@ const Navbar = () => {
         <Text ml={['3px','3px','6px','10px','10px','13px']} fontSize={['0px','0px','8px','16px','16px','16px']} >PLANNING</Text> 
         <Text ml={['3px','3px','6px','10px','10px','13px']} fontSize={['0px','0px','8px','16px','16px','16px']} >ABOUT</Text> 
       <Flex w='20%' >
-       <Box mt={'3px'} ml={['2px','2px','2px','15px','15px','15px']} mr={'5px'}> <AiFillShop  size={'20px'} /></Box>
+       <Box mt={'3px'} ml={['2px','2px','2px','15px','15px','15px']} mr={'5px'}> <AiFillShop className='none' size={'20px'} /></Box>
         <Box  > <Text fontSize={['0px','0px','8px','16px','16px','16px']}>BOOK APPOINTMENT</Text></Box>
         </Flex>
         {/* 2nd NavBar SearchBar */}
         <Flex ml={['25px','25px','50px','210px','210px','210px']} alignItems={'center'} >
-          <Flex><Input border={'none'} borderBottom={'1px solid black'} placeholder='Search...' />
-          <Button bgColor={'transparent'} ><AiOutlineSearch size={['10px','10px','10px','25px','25px','25px']} /></Button></Flex>
-          <Box  ml={['5px','5px','17px','17px']} ><ImLocation size={'25px'} /></Box>
-          <Box  ml={['5px','5px','22px','22px']} >
+          <Flex><Input  className='none' border={'none'} borderBottom={'1px solid black'} placeholder='Search...' />
+          <Button bgColor={'transparent'} ><AiOutlineSearch className='none' size={'25px'} /></Button></Flex>
+          <Box  ml={['5px','5px','17px','17px']} ><ImLocation className='none' size={'25px'} /></Box>
+          <Box  ml={['0px','5px','22px','22px']} >
             { isAuthenticated ? (<Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
               Log Out
             </Button>) : (<Button onClick={() => loginWithRedirect()}>Log In</Button>)
