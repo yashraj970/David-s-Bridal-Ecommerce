@@ -1,15 +1,127 @@
+.nav-root {
+  background: linear-gradient(
+    to left,
+    rgba(31, 30, 30, 0.3),
+    rgba(255, 255, 255, 0.4)
+  );
+  backdrop-filter: blur(12.5px);
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  height: 4.0625rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.custom-navbar {
+  width: 87%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
 
-@media screen and (min-width:101px) and (max-width:700px){
-    .none{
-        display: none;
-    }
-    /* .logo{
-        width: 80%;
-    }
-    .nav1-flex{
-        width: 400px;
-    }
-    .nav1{
-        width: 400px;
-    } */
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  background-color: transparent;
+}
+
+.search-input.expanded {
+  width: 200px; /* Adjust the width as needed */
+}
+
+.last-nav {
+  margin-right: 1rem;
+}
+
+.logo {
+  width: 6.63044rem;
+  /* height: 2.63044rem; */
+  flex-shrink: 0;
+}
+
+.logoText {
+  color: #fff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 1.15288rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.08069rem;
+  margin-left: 1rem;
+}
+
+.nav-login {
+  display: inline-flex;
+  padding: 0.5rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 6.25rem;
+  background: #fff;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.nav-signup {
+  display: inline-flex;
+  padding: 0.5rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 6.25rem;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.login-link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.signup-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4rem;
+  color: #fff;
+}
+
+.nav-links div {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.nav-links div:hover {
+  transform: translateY(-2px);
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .nav-links {
+    display: none;
+  }
 }
